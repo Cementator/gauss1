@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col min-h-full max-w-xl w-auto p-4 bg-yellow-200">
+    <div v-show="seen" class="flex flex-col min-h-full max-w-xl w-auto p-4 bg-yellow-200">
         <nuxt-link to="#">Filmovi</nuxt-link>
         <nuxt-link to="#">Zelje</nuxt-link>
     </div>
@@ -7,6 +7,12 @@
 
 <script>
 export default {
+    props: {
+        seen: {
+            type: [Boolean],
+            default: false
+        }
+    }
 
 }
 </script>

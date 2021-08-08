@@ -1,10 +1,10 @@
 <template>
     <div class="flex flex-col w-screen">
         <div>
-            <TheHeader />
+            <TheHeader :btn-text="text" @toggleSidebarOpen="changetext()"/>
         </div>
         <div class="flex">
-            <TheSidebar />
+            <TheSidebar :seen="isSidebarOpen"/>
             <Nuxt />
         </div>
     </div>
@@ -14,6 +14,24 @@
 
 <script>
 export default {
+    data () {
+        return{
+            isSidebarOpen : false,
+            text : "Sidebar is closed"
+        }
+    },
+    methods: {
+        changetext() {
+            this.isSidebarOpen = !this.isSidebarOpen
+            if (this.isSidebarOpen === true) (
+                this.text = "Sidebar is open"
+            );
+            else (this.text="Sidebar is closed")
+
+        }
+
+    }
+ 
 
 }
 </script>
