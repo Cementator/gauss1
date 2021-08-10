@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col w-screen">
         <div>
-            <TheHeader :btn-text="text" @toggleSidebarOpen="changetext()"/>
+            <TheHeader :btn-text="text" @toggle-sidebar-open="changetext"/>
         </div>
         <div class="flex">
             <TheSidebar :seen="isSidebarOpen"/>
