@@ -2,7 +2,7 @@
   <div class="flex flex-col bg-gray-100 p-2">
       <h1 class="text-xl">{{movieTitle}}</h1>
       <img :src="'https://image.tmdb.org/t/p/w300'+baseImgPath" alt="Image">
-      <nuxt-link to="/movies/">Details</nuxt-link>
+      <nuxt-link :to="`/movies/${movieId}`" >Details</nuxt-link>
   </div>
 </template>
 
@@ -18,15 +18,19 @@ export default {
       default: "/464N3J1i6L5SsazPmX9m3q1GiZ3.jpg"
     },
     movieId :{
-      type: Number,
       default: 436969
     }
   },
   data (){
     return {
     }
+  },
+  methods: {
+    
   }
-
+  
+  
+  
 }
 </script>
 
