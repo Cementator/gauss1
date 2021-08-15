@@ -1,10 +1,14 @@
 <template>
     <div class="flex flex-wrap min-h-full w-screen">
+        <p v-if="$fetchState.pending">Fetching movies...</p>
+        <p v-else-if="$fetchState.error">An error occurred :(</p>
+        <div v-else class="flex flex-wrap">
         <movieComp v-for="result in movies.results" 
           :key="result.id" 
           :movie-title="result.original_title" 
           :base-img-path="result.poster_path"
           :movie-id="result.id" />
+        </div>
     </div>
 </template>
 
