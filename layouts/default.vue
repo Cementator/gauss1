@@ -25,7 +25,7 @@ export default {
         }
     },
     mounted(){
-        const listOfMovies = localStorage.getItem('listOfMovies')
+        const listOfMovies = JSON.parse(localStorage.getItem('listOfMovies'))
         this.$store.dispatch('setListOfMovies', listOfMovies)
     },
     methods: {

@@ -52,10 +52,11 @@ export default {
           picture: this.movie.poster_path,
           id : this.movie.id
         }
-        if(this.$store.state.movies===undefined) {
+        console.log(this.movie.id)
+        if(this.$store.state.movies===null) {
           this.$store.dispatch('addMovie', wishListData)
         } else if(this.$store.state.movies.some(movie=> movie.id===this.movie.id)){
-          this.$store.dispatch('removeMovie', this.movie)
+          this.$store.dispatch('removeMovie', wishListData)
         } else {
           this.$store.dispatch('addMovie', wishListData)}
         }
