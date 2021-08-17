@@ -1,7 +1,7 @@
 <template>
     <div v-show="seen" class="flex flex-col min-h-full max-w-xl w-auto p-4 bg-yellow-200">
         <nuxt-link to="/movies">Movies</nuxt-link>
-        <nuxt-link to="#">Wishes</nuxt-link>
+        <nuxt-link to="/wishlist">Wishlist</nuxt-link>
     </div>
 </template>
 

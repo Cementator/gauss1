@@ -24,13 +24,25 @@ export default {
         baseURL: "http://api.themoviedb.org/3/discover/movie?api_key=7ed6d2f608b8f66d8fd54d5f11c9e7d4",
         }
     },
-    
+    fetchDelay: 1000,
     async fetch() {
       this.movies = await fetch(
         this.baseURL
       ).then(res => res.json())
       console.log(this.movies)
 
+    },
+    head() {
+      return {
+        title: "List of movies",
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: 'Home page description'
+          }
+        ]
+      }
     },
     methods: {
     }

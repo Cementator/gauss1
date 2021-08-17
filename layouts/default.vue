@@ -3,9 +3,13 @@
         <div>
             <TheHeader :btn-text="text" @toggle-sidebar-open="changetext"/>
         </div>
-        <div class="flex">
-            <TheSidebar :seen="isSidebarOpen"/>
-            <Nuxt />
+        <div class="flex flex-row">
+            <div>
+                <TheSidebar :seen="isSidebarOpen"/>
+            </div>
+            <div class="w-screen h-screen">
+                <Nuxt />
+            </div>
         </div>
     </div>
     
