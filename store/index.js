@@ -7,12 +7,12 @@ export const state = () => ({
     addMovie(state, movie) {
         state.movies.push(movie)
         localStorage.setItem('listOfMovies', JSON.stringify(state.movies))
-        console.log(localStorage.getItem(1))
+        console.log(localStorage.getItem('listOfMovies'))
     },
     removeMovie(state, movieId) {
         state.movies.splice(state.movies.indexOf(movieId), 1)
         localStorage.setItem('listOfMovies', JSON.stringify(state.movies))
-        console.log(localStorage.getItem(1))
+        console.log(localStorage.getItem('listOfMovies'))
         
     },
     setListOfMovies:(state, listOfMovies)=>{
@@ -29,8 +29,8 @@ export const actions = {
     removeMovie:({commit}, movie) =>{
         commit('removeMovie', movie)
     },
-    setListOfMovies:({commit})=>{
-        commit('setListOfMovies')
+    setListOfMovies:({commit, setListOfMovies})=>{
+        commit('setListOfMovies', setListOfMovies)
 
     }
 }
