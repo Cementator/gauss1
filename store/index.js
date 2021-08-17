@@ -6,10 +6,20 @@ export const state = () => ({
   export const mutations = {
     addMovie(state, movie) {
         state.movies.push(movie)
+        localStorage.setItem('listOfMovies', JSON.stringify(state.movies))
+        console.log(localStorage.getItem(1))
     },
     removeMovie(state, movieId) {
-        state.movies = state.movies.filter((movie) => movie.id !== movieId)
+        state.movies.splice(state.movies.indexOf(movieId), 1)
+        localStorage.setItem('listOfMovies', JSON.stringify(state.movies))
+        console.log(localStorage.getItem(1))
+        
     },
+    setListOfMovies:(state, listOfMovies)=>{
+        if (listOfMovies!==undefined){
+        state.movies.push(listOfMovies)
+        }
+    }
 }
 
 export const actions = {
@@ -18,6 +28,10 @@ export const actions = {
     },
     removeMovie:({commit}, movie) =>{
         commit('removeMovie', movie)
+    },
+    setListOfMovies:({commit})=>{
+        commit('setListOfMovies')
+
     }
 }
 

@@ -24,6 +24,10 @@ export default {
             text : "Sidebar is closed"
         }
     },
+    mounted(){
+        const listOfMovies = localStorage.getItem('listOfMovies')
+        this.$store.dispatch('setListOfMovies', listOfMovies)
+    },
     methods: {
         changetext() {
             this.isSidebarOpen = !this.isSidebarOpen
@@ -32,11 +36,12 @@ export default {
             );
             else (this.text="Sidebar is closed")
 
+        },
+        konzola(){
+            console.log(localStorage.getItem('listOfMovies'))
         }
 
-    }
- 
-
+    },
 }
 </script>
 

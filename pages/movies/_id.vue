@@ -7,8 +7,7 @@
       </div>
       <div class="max-w-2xl p-2">
         <p>{{movie.overview}}</p>
-        <button class="p-2 border-2" @click="addMovie" > Add to Wishlist</button>
-        <button class="p-2 border-2" @click="$store.dispatch('removeMovie', movie.original_title)" > remove from Wishlist</button>
+        <button class="p-2 border-2" @click="addMovie" > Add or remove from Wishlist</button>
       </div>
     </div>
 
@@ -50,10 +49,16 @@ export default {
       addMovie() {
         const wishListData = {
           name : this.movie.original_title,
-          id : this.params.id
+          picture: this.movie.poster_path,
+          id : this.movie.id
         }
-        this.$store.dispatch('addMovie', wishListData)
-      }
+        if(this.$store.state.movies===undefined) {
+          this.$store.dispatch('addMovie', wishListData)
+        } else if(this.$store.state.movies.some(movie=> movie.id===this.movie.id)){
+          this.$store.dispatch('removeMovie', this.movie)
+        } else {
+          this.$store.dispatch('addMovie', wishListData)}
+        }
     }
 }
 </script>
