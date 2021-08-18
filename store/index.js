@@ -9,7 +9,7 @@ export const state = () => ({
         localStorage.setItem('listOfMovies', JSON.stringify(state.movies))
     },
     removeMovie(state, movie) {
-        state.movies.splice(state.movies.indexOf(movie), 1)
+        state.movies.splice(state.movies.map(x => x.id).indexOf(movie.id), 1)
         localStorage.setItem('listOfMovies', JSON.stringify(state.movies))
         
     },
