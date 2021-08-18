@@ -44,7 +44,6 @@ export default {
     },
     methods: {
       konzola(){
-        console.log(this.params.id)
       },
       addMovie() {
         const wishListData = {
@@ -52,14 +51,16 @@ export default {
           picture: this.movie.poster_path,
           id : this.movie.id
         }
-        console.log(this.movie.id)
+        console.log(this.$store.state.movies.map(x => x.id).indexOf(this.movie.id))
         if(this.$store.state.movies===null) {
           this.$store.dispatch('addMovie', wishListData)
         } else if(this.$store.state.movies.some(movie=> movie.id===this.movie.id)){
           this.$store.dispatch('removeMovie', wishListData)
         } else {
           this.$store.dispatch('addMovie', wishListData)}
+          console.log(this.$store.state.movies.map(x => x.id).indexOf(this.movie.id))
         }
+        
     }
 }
 </script>

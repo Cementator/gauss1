@@ -3,6 +3,7 @@
         <button class="p-2 bg-red-100" @click="$emit('toggle-sidebar-open')"> {{btnText}} </button>
         <nuxt-link class="p-2 bg-blue-100" to="/">Back</nuxt-link>
         <h1>First: {{$store.state.movies}}</h1>
+        <h1>Number of movies in wishlist: {{$store.state.movies.length}}</h1>
     </div>
 </template>
 
