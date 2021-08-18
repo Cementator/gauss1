@@ -3,7 +3,7 @@
     <h2>JavaScript Validation</h2>
     <form
       id="app"
-      action="http://localhost:3000/"
+      action="http://localhost:3000/movies"
       method="post"
       @submit="checkForm"
     >
@@ -54,9 +54,9 @@ export default {
   },
   methods:{
       checkForm (e) {
+        console.log(this.$cookies.get("username"))
         if (this.username && this.password) {
-          this.$cookies.set("dva", 1)
-          console.log(this.$cookies.get("dva"))
+          this.$cookies.set("username", this.username)
           return true;
         }
         this.errors = [];

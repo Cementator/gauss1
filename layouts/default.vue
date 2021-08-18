@@ -18,6 +18,7 @@
 
 <script>
 export default {
+    middleware: 'stats',
     data () {
         return{
             isSidebarOpen : false,

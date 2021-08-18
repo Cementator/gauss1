@@ -39,7 +39,7 @@ export default {
   modules: [
     ['@nuxtjs/axios'],
     ['@nuxt/http'],
-    ['cookie-universal-nuxt', { alias: 'cookiz' }],
+    ['cookie-universal-nuxt', { alias: 'cookies' }],
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
