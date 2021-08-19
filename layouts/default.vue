@@ -18,7 +18,11 @@
 
 <script>
 export default {
-    middleware: 'stats',
+    middleware({app, redirect}) {
+    if (!app.$cookies.get("username")) {
+      return redirect('http://localhost:3000/')
+    }
+    },
     data () {
         return{
             isSidebarOpen : false,

@@ -1,6 +1,7 @@
 export const state = () => ({
 
-    movies: []
+    movies: [],
+    user:[]
   })
 
   export const mutations = {
@@ -17,6 +18,9 @@ export const state = () => ({
         if (listOfMovies!==null){
         state.movies = listOfMovies
         }
+    },
+    user (state, user) {
+        state.user.push(user)
     }
 }
 
@@ -30,7 +34,13 @@ export const actions = {
     setListOfMovies:({commit}, setListOfMovies)=>{
         commit('setListOfMovies', setListOfMovies)
 
-    }
+    },
+    nuxtServerInit ( {commit}, {app} ) {
+        if (app.$cookies.get("username")) {
+          commit('user', app.$cookies.get("username"))
+          console.log(app.$cookies.get("username"))
+        }
+      }
 }
 
 export const getters = {
